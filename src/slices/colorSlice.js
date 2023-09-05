@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { addHexCodeToStorage } from "../helpers/storageUtils";
+import { addHexCodeToStorage, addRgbCodeToStorage } from "../helpers/storageUtils";
 
 const colorSlice = createSlice({
   name: 'color',
   initialState: {
     tab: 'hex',
-    hex: '#A91D5F',
-    rgb: 'rgb(169, 29, 95)',
+    hex: '#4717B3',
+    rgb: 'rgb(71, 23, 179)',
     hexCodes: [],
     rgbCodes: []
   },
@@ -21,6 +21,7 @@ const colorSlice = createSlice({
     },
     setRgb: (state, action) => {
       state.rgb = action.payload;
+      addRgbCodeToStorage(action.payload);
     },
     setHexCodes: (state, action) => {
       state.hexCodes = action.payload;
